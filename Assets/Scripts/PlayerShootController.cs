@@ -21,17 +21,24 @@ public class PlayerShootController : MonoBehaviour
     private float reloadTimerTotal = 0.5f;
     private float reloadTimer = 0.5f;
     private float currentReloadTimer = 0f;
+
+    private PlayerStateController _playerStateController;
     // Start is called before the first frame update
     void Start()
     {
         currentShootTimer = shootTimer;
         currentAmmo = ammoCapacity;
         _leafController = GetComponent<LeafController>();
+        _playerStateController = GetComponent<PlayerStateController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_playerStateController.playerState != PlayerStates.ArenaSurvival)
+        {
+            return;
+        }
 
        if (Input.GetMouseButton(0) && !isReloading)
        {
