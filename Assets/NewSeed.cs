@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class NewSeed : MonoBehaviour
@@ -15,6 +16,8 @@ public class NewSeed : MonoBehaviour
         
         PlayerArenaEndShoot.instance.GrowNewTree(transform.position);
         
-        
+        CameraController.instance.SetArenaCamera(PlayerArenaEndShoot.instance.transform);
+        transform.DOScale(Vector3.zero, 0.2f).OnComplete(() => Destroy(gameObject));
+
     }
 }

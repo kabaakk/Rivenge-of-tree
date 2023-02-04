@@ -17,6 +17,9 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
     void Start()
     {
         _playerStateController = GetComponent<PlayerStateController>();
+        TreePartController treePartController = GetComponentInChildren<TreePartController>();
+        treePartController.CloseTree();
+        treePartController.GrowTree();
     }
 
     // Update is called once per frame
@@ -70,6 +73,9 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
     {
         GameObject newSeed = Instantiate(newSeedPrefab, transform.position + Vector3.up*2, Quaternion.identity);
         newSeed.GetComponent<Rigidbody>().AddForce(direction.normalized * 1000f + Vector3.up*100f);
+        CameraController.instance.SetFollowForSeedCamera(newSeed.transform);
+        CameraController.instance.SetCameraStatus(CameraController.CameraTypes.FlyCamera);
+       
         
     }
 

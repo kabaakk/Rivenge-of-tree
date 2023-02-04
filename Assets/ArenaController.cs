@@ -14,7 +14,9 @@ public class ArenaController : Singleton<ArenaController>
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemies();
+        ActionManager.instance.ArenaSurvivalStarted += SurvivalStarted;
+        
+       // SpawnEnemies();
     }
 
 
@@ -27,6 +29,12 @@ public class ArenaController : Singleton<ArenaController>
 
     }
 
+    
+    private void SurvivalStarted()
+    {
+        enemyDiedCount = 0;
+        SpawnEnemies();
+    }
     private IEnumerator SpawnEnemiesCoroutine()
     {
         for(int i=0;i<enemySpawnCount;i++)
