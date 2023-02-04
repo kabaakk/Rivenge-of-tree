@@ -18,6 +18,20 @@ public class LeafController : MonoBehaviour
         
     }
 
+    public void CloseAllLeaf()
+    {
+        foreach (var leaf in leafs)
+        {
+           
+            
+            
+                leaf.SetActive(false);
+            
+            
+        }
+        
+        
+    }
     public void AmmoCountChanged(int currentAmmo, int maxAmmo)
     {
         if (currentAmmo == 0)
