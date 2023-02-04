@@ -17,7 +17,7 @@ public class ArenaController : Singleton<ArenaController>
     void Start()
     {
         ActionManager.instance.ArenaSurvivalStarted += SurvivalStarted;
-        
+        ActionManager.instance.ArenaSurvived += ArenaSurvived;
        // SpawnEnemies();
     }
 
@@ -49,11 +49,7 @@ public class ArenaController : Singleton<ArenaController>
         
         
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
     public void EnemyDied()
     {
@@ -64,6 +60,18 @@ public class ArenaController : Singleton<ArenaController>
         }
 
 
+    }
+
+    private void ArenaSurvived()
+    {
+        
+        currentAreaLevel++;
+        if (currentAreaLevel >= basicEnemies.Count)
+        {
+            currentAreaLevel = 0;
+        }
+        enemySpawnCount += 5;
+        ActionManager.instance.ArenaSurvivalStarted?.Invoke();
     }
     
     

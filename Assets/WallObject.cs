@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class WallObject : MonoBehaviour
@@ -16,6 +17,8 @@ public class WallObject : MonoBehaviour
         transform.LookAt(new Vector3(playerPos.x, transform.position.y, playerPos.z));
         StartCoroutine(GrowAllCoroutine());
 
+        
+        
     }
 
     private IEnumerator GrowAllCoroutine()
@@ -25,7 +28,14 @@ public class WallObject : MonoBehaviour
             smallTree.GrowTree();
             yield return new WaitForSeconds(0.1f);
         }
-        
-        
+
+
+        yield return new WaitForSeconds(1f);
+
+        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InSine).OnComplete(() =>
+
+            Destroy(gameObject));
+        ;
+
     }
 }
