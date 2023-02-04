@@ -8,7 +8,6 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
 {
     private PlayerStateController _playerStateController;
 
-    private Vector3 mouseStartPos;
 
     private Vector3 directionToShoot;
 
@@ -32,17 +31,7 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            // set 
-            int layerMask = 1 << 6;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
-            {
-                mouseStartPos = transform.position;
-            }
-            
-        }
+      
 
 
         if (Input.GetMouseButton(0))
@@ -51,7 +40,7 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
             {
-               directionToShoot =  mouseStartPos -hit.point;
+               directionToShoot =  transform.position -hit.point;
                 
                 LineRendererController.instance.DrawLine(transform.position, transform.position - directionToShoot);
             }
@@ -74,7 +63,8 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
     private void ThrowSeed(Vector3 direction)
     {
         GameObject newSeed = Instantiate(newSeedPrefab, transform.position + Vector3.up*2, Quaternion.identity);
-        newSeed.GetComponent<Rigidbody>().AddForce(direction.normalized * 1000f + Vector3.up*100f);
+        newSeed.GetComponent<Rigidbody>().AddForce(direction.normalized * 1000f + Vector3.up*300f);
+        
         CameraController.instance.SetFollowForSeedCamera(newSeed.transform);
         CameraController.instance.SetCameraStatus(CameraController.CameraTypes.FlyCamera);
        

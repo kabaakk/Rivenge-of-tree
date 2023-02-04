@@ -27,7 +27,7 @@ public class AiRanged : AiMovement
             if (currentFireBallTimer >= fireBallTimer)
             {
                 //shoot fireball
-                FaceTarget();
+                //FaceTarget();
                 FireBall fireBall = Instantiate(_fireBall, transform.position, transform.rotation);
                 fireBall.transform.LookAt(target);
                 currentFireBallTimer = 0f;

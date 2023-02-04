@@ -14,6 +14,10 @@ public class AiMovement : MonoBehaviour
     protected bool isDead = false;
 
     [SerializeField] protected float health = 20f;
+
+    [SerializeField] private float damageTimer = 0.3f;
+
+    private float timerCounter = 0f;
     // Start is called before the first frame update
     protected void Start()
     {
@@ -34,15 +38,19 @@ public class AiMovement : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
 
         nav.SetDestination(target.position);
+        //FaceTarget();
 
         if (distance <= 1)
         {
-            if (chs.health > 0)
+            timerCounter += Time.deltaTime;
+            if (timerCounter >= damageTimer)
             {
-                //attack animation;
-                FaceTarget();
                 chs.GetDamage(0.2f);
+                timerCounter = 0f;
             }
+            
+            
+        
         }
     }
 

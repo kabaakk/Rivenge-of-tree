@@ -6,10 +6,11 @@ using UnityEngine;
 public class TreePartController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> treeParts;
+    [SerializeField] private ParticleSystem growParticle;
     
     public void GrowTree()
     {
-       
+        growParticle.Play();
         StartCoroutine(GrowTreeCoroutine());
     }
     
