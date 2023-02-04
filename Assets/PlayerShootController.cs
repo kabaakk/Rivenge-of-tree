@@ -13,10 +13,13 @@ public class PlayerShootController : MonoBehaviour
     [SerializeField] private Seed seedPrefab;
     
     [SerializeField] private Transform shootPoint;
+
+    private LeafController _leafController;
     // Start is called before the first frame update
     void Start()
     {
         currentAmmo = ammoCapacity;
+        _leafController = GetComponent<LeafController>();
     }
 
     // Update is called once per frame
@@ -25,7 +28,6 @@ public class PlayerShootController : MonoBehaviour
 
        if (Input.GetMouseButton(0))
        {
-           Debug.Log("xd");
            currentShootTimer += Time.deltaTime;
            if (currentShootTimer >= shootTimer)
            {
@@ -33,6 +35,8 @@ public class PlayerShootController : MonoBehaviour
                if (currentAmmo > 0)
                {
                    currentAmmo--;
+                   _leafController.AmmoCountChanged(currentAmmo, ammoCapacity);
+
                    int layerMask = 1 << 6;
                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                    if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))

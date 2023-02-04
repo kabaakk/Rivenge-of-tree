@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class CharacterMovement : MonoBehaviour
 {
     CharacterController controller;
-    public Camera cam;
     public GameObject seed;
     public Transform player;
     public static CharacterMovement instance;

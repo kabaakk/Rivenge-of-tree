@@ -123,37 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 24c778e7709041d45b922f67b8f15ef1, type: 2}
---- !u!1 &490048539
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 490048540}
-  m_Layer: 0
-  m_Name: ShootPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &490048540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490048539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.308, y: 1.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 492119146493028959}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,41 +692,3 @@ PrefabInstance:
       objectReference: {fileID: 963194227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a59986fcd0b72f428a2f3d409520e60, type: 3}
---- !u!1 &492119146493028953 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 360948142612740304, guid: 8a59986fcd0b72f428a2f3d409520e60, type: 3}
-  m_PrefabInstance: {fileID: 492119146493028952}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &492119146493028954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492119146493028953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b3d24a3b93eb740b2da85c457a3292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootTimer: 0.2
-  ammoCapacity: 10
-  seedPrefab: {fileID: 314358808725779096, guid: b534376fbfd47c342ae1c4b6c4878eab, type: 3}
-  shootPoint: {fileID: 490048540}
---- !u!114 &492119146493028955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492119146493028953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8ae91be967c2094eb8dd5190f934c66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &492119146493028959 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3215652190287148641, guid: 8a59986fcd0b72f428a2f3d409520e60, type: 3}
-  m_PrefabInstance: {fileID: 492119146493028952}
-  m_PrefabAsset: {fileID: 0}
