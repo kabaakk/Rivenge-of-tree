@@ -43,7 +43,7 @@ public class ArenaController : Singleton<ArenaController>
         {
             Vector3 randomOffset = Random.onUnitSphere * 20;
             randomOffset.y = 0;
-            Instantiate(basicEnemies[Random.Range()], transform.position + randomOffset, Quaternion.identity);
+            Instantiate(basicEnemies[Random.Range(0,currentAreaLevel)], transform.position + randomOffset, Quaternion.identity);
             yield return new WaitForSeconds(0.3f);
         }
         
