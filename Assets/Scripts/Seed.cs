@@ -15,6 +15,8 @@ public class Seed : MonoBehaviour
     [SerializeField] private GameObject saplingObject;
     [SerializeField] private Transform childObject;
 
+
+    public float damageAmount = 20f;
     private void Awake()
     {
         instance = this;
@@ -35,22 +37,13 @@ public class Seed : MonoBehaviour
         childObject.Rotate(Vector3.up * 100 * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            
-            collision.gameObject.GetComponent<AiMovement>().TakeDamage();
-            
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
             
-            other.GetComponent<AiMovement>().TakeDamage();
+            other.GetComponent<AiMovement>().TakeDamage(damageAmount);
             Destroy(gameObject);
         }
     }

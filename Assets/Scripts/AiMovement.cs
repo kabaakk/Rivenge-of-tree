@@ -11,6 +11,9 @@ public class AiMovement : MonoBehaviour
     public CharacterHealthSystem chs;
     protected Transform target;
 
+    protected bool isDead = false;
+
+    [SerializeField] protected float health = 20f;
     // Start is called before the first frame update
     protected void Start()
     {
@@ -24,6 +27,10 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
         float distance = Vector3.Distance(target.position, transform.position);
 
         nav.SetDestination(target.position);
@@ -46,11 +53,36 @@ public class AiMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float damageAmount)
     {
-        ArenaController.instance.EnemyDied();
-        Destroy(this.gameObject);
+        
+        health -= damageAmount;
+        if (health <= 0)
+        {
+            isDead = true;
+            ArenaController.instance.EnemyDied();
+            GetComponent<Collider>().enabled = false;
+            StartCoroutine(DyingCoroutine());
+        }
+        
+      
         
         
+    }
+
+    private IEnumerator DyingCoroutine()
+    {
+        GetComponentInChildren<Animation>().Stop();
+        GetComponentInChildren<Animation>().enabled = false;
+        
+        transform.DORotate(Vector3.right*90f, 0.5f);
+        transform.DOJump(transform.position, 0.5f, 1, 0.5f);
+        
+        yield return new WaitForSeconds(1f);
+
+
+        transform.DOScale(Vector3.zero, 0.3f).OnComplete(() => Destroy(gameObject));
+
+
     }
 }
