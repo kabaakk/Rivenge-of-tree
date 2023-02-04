@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,11 @@ public class Seed : MonoBehaviour
         instance = this;
     }
 
-    public void SeedPrefab()
-    {
-        Vector3 position = AiMovement.instance.ai.position;
-        transform.Translate(position * seedSpeed * Time.deltaTime);
 
+    private void Update()
+    {
+        transform.position +=  seedSpeed * Time.deltaTime*transform.forward ;
     }
+
+  
 }
