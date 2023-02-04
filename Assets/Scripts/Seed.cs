@@ -13,7 +13,10 @@ public class Seed : MonoBehaviour
     
     private float currentSeedAirTimer = 0f;
     [SerializeField] private GameObject saplingObject;
+    [SerializeField] private Transform childObject;
 
+
+    public float damageAmount = 20f;
     private void Awake()
     {
         instance = this;
@@ -28,27 +31,19 @@ public class Seed : MonoBehaviour
         if (currentSeedAirTimer >= seedAirTimer)
         {
             // instantiate sapling at position on y zero
-            Instantiate(saplingObject, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
+          //  Instantiate(saplingObject, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
+        childObject.Rotate(Vector3.up * 100 * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            
-            collision.gameObject.GetComponent<AiMovement>().TakeDamage();
-            
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
             
-            other.GetComponent<AiMovement>().TakeDamage();
+            other.GetComponent<AiMovement>().TakeDamage(damageAmount);
             Destroy(gameObject);
         }
     }
