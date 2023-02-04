@@ -30,8 +30,6 @@ public class Seed : MonoBehaviour
         currentSeedAirTimer += Time.deltaTime;
         if (currentSeedAirTimer >= seedAirTimer)
         {
-            // instantiate sapling at position on y zero
-          //  Instantiate(saplingObject, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
         childObject.Rotate(Vector3.up * 100 * Time.deltaTime);
