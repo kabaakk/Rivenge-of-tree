@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArenaController : MonoBehaviour
+public class ArenaController : Singleton<ArenaController>
 {
+    
+    
+    private int enemySpawnCount = 0;
+    private int currentSpawnCount = 0;
+    private int enemyDiedCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +20,18 @@ public class ArenaController : MonoBehaviour
     {
         
     }
+
+    public void EnemyDied()
+    {
+        enemyDiedCount++;
+        if (enemyDiedCount == enemySpawnCount)
+        {
+            ActionManager.instance.ArenaSurvived?.Invoke();
+        }
+
+
+    }
+    
+    
+    
 }

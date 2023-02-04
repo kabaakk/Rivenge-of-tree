@@ -1,0 +1,75 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
+using UnityEngine;
+
+public class PlayerArenaEndShoot : MonoBehaviour
+{
+    private PlayerStateController _playerStateController;
+
+    private Vector3 mouseStartPos;
+
+    private Vector3 directionToShoot;
+
+    [SerializeField] private GameObject newSeedPrefab;
+    // Start is called before the first frame update
+    void Start()
+    {
+        _playerStateController = GetComponent<PlayerStateController>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(_playerStateController.playerState != PlayerStates.ArenaSurvivalEnd)
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            // set 
+            int layerMask = 1 << 6;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
+            {
+                mouseStartPos = hit.point;
+            }
+            
+        }
+
+
+        if (Input.GetMouseButton(0))
+        {
+            int layerMask = 1 << 6;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
+            {
+               directionToShoot = hit.point - mouseStartPos;
+                
+                
+            }
+            
+            
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            ActionManager.instance.SeedThrown?.Invoke();
+            ThrowSeed(directionToShoot);
+
+        }
+        
+      
+        
+        
+    }
+
+    private void ThrowSeed(Vector3 direction)
+    {
+        GameObject newSeed = Instantiate(newSeedPrefab, transform.position, Quaternion.identity);
+        newSeed.GetComponent<Rigidbody>().AddForce(direction * 1000f + Vector3.up*100f);
+        
+    }
+}
