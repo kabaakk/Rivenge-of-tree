@@ -13,6 +13,8 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
     private Vector3 directionToShoot;
 
     [SerializeField] private GameObject newSeedPrefab;
+
+    [SerializeField] private GameObject staticTree;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +51,9 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
             {
-               directionToShoot = hit.point - mouseStartPos;
+               directionToShoot =  mouseStartPos -hit.point;
                 
-                
+                LineRendererController.instance.DrawLine(transform.position, transform.position - directionToShoot);
             }
             
             
