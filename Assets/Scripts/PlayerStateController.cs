@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerStateController : MonoBehaviour
@@ -18,7 +19,9 @@ public class PlayerStateController : MonoBehaviour
 
     private void ArenaSurvived()
     {
-        playerState = PlayerStates.ArenaSurvivalEnd;
+        playerState = PlayerStates.InBetween;
+        
+        DOVirtual.DelayedCall(0.3f,()=>playerState = PlayerStates.ArenaSurvivalEnd);
 
 
     }
@@ -31,6 +34,13 @@ public class PlayerStateController : MonoBehaviour
     private void SeedThrown()
     {
         playerState = PlayerStates.MovingToNewArena;
+    }
+
+    public void FinishedGrowing()
+    {
+        
+        playerState = PlayerStates.ArenaSurvival;
+        ActionManager.instance.ArenaSurvivalStarted?.Invoke();
     }
     
 }

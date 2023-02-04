@@ -24,6 +24,7 @@ public class CharacterMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         characterMovementAreaStart = transform.position;
         _playerStateController = GetComponent<PlayerStateController>();
+        ActionManager.instance.ArenaSurvivalStarted += SurvivalStarted;
     }
 
     // Update is called once per frame
@@ -54,5 +55,13 @@ public class CharacterMovement : MonoBehaviour
     {
         Gizmos.DrawWireCube(characterMovementAreaStart ,
             new Vector3(characterMovementArea.x * 2, 1, characterMovementArea.y * 2));
+    }
+
+
+    private void SurvivalStarted()
+    {
+        characterMovementAreaStart = transform.position;
+        
+        
     }
 }

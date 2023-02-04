@@ -35,7 +35,10 @@ public class CameraController : Singleton<CameraController>
                 startingDifference = vCamera.camera.transform.position - PlayerArenaEndShoot.instance.transform.position;
             }
            
-        }    
+        }
+
+        ActionManager.instance.ArenaSurvived += ArenaSurvived;
+        ActionManager.instance.ArenaSurvivalStarted += SurvivalStarted;
     }
 
     public void SetCameraStatus(CameraTypes cameraType)
@@ -61,16 +64,39 @@ public class CameraController : Singleton<CameraController>
             if (vCamera.cameraType == CameraTypes.FlyCamera)
             {
                 vCamera.camera.Follow = seedToFollow;
+                vCamera.camera.LookAt = seedToFollow;
             }
         }
     }
 
     public void SetArenaCamera(Transform arenaToSet)
     {
+
+        SetCameraStatus(CameraTypes.ArenaSurvivalCamera);
+        foreach (var vCam in cameras)
+        {
+            if(vCam.cameraType == CameraTypes.ArenaSurvivalCamera)
+            {
+               vCam.camera.transform.position = arenaToSet.position + startingDifference;
+            }
+            
+        }
         
         
+     
+
         
         
+    }
+
+    private void ArenaSurvived()
+    {
+        SetCameraStatus(CameraTypes.ArenaSurvivalEndCamera);
+    }
+    
+    private void SurvivalStarted()
+    {
+        SetCameraStatus(CameraTypes.ArenaSurvivalCamera);
     }
 
 }

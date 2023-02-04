@@ -20,6 +20,8 @@ public class TreePartController : MonoBehaviour
             treePart.SetActive(true);
             yield return new WaitForSeconds(0.1f);
         }
+        
+        GetComponentInParent<PlayerStateController>().FinishedGrowing();
     }
 
     public void CloseTree()
