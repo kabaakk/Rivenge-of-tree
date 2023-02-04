@@ -30,6 +30,7 @@ public class PlayerShootController : MonoBehaviour
         currentAmmo = ammoCapacity;
         _leafController = GetComponent<LeafController>();
         _playerStateController = GetComponent<PlayerStateController>();
+        ActionManager.instance.ArenaSurvivalStarted += RefillAllAmmo;
     }
 
     // Update is called once per frame
@@ -86,7 +87,12 @@ public class PlayerShootController : MonoBehaviour
         }
             
     }
-        
-        
+
+
+    private void RefillAllAmmo()
+    {
+        currentAmmo = ammoCapacity;
+        _leafController.AmmoCountChanged(currentAmmo, ammoCapacity);
+    }
     
 }

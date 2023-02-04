@@ -39,7 +39,7 @@ public class ArenaController : Singleton<ArenaController>
     {
         for(int i=0;i<enemySpawnCount;i++)
         {
-            Vector3 randomOffset = Random.insideUnitSphere * 5;
+            Vector3 randomOffset = Random.onUnitSphere * 20;
             randomOffset.y = 0;
             Instantiate(basicEnemy, transform.position + randomOffset, Quaternion.identity);
             yield return new WaitForSeconds(0.3f);

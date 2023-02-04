@@ -49,6 +49,7 @@ public class Seed : MonoBehaviour
         {
             
             other.GetComponent<AiMovement>().TakeDamage();
+            Destroy(gameObject);
         }
     }
 }
