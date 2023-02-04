@@ -111,3 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seedSpeed: 10
+  seedAirTimer: 0.5
+  saplingObject: {fileID: 8838763572078201606, guid: 65fae7f6e6eeb3c4d80878c307404ad0, type: 3}
