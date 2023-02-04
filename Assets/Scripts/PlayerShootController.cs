@@ -6,7 +6,7 @@ public class PlayerShootController : MonoBehaviour
 {
     
     [SerializeField] private float shootTimer =0.2f;
-    private float currentShootTimer = 0f;
+    private float currentShootTimer = 0.2f;
     [SerializeField] private int ammoCapacity = 10;
     private int currentAmmo = 10;
 
@@ -15,9 +15,16 @@ public class PlayerShootController : MonoBehaviour
     [SerializeField] private Transform shootPoint;
 
     private LeafController _leafController;
+    
+    private bool isReloading = false;
+
+    private float reloadTimerTotal = 0.5f;
+    private float reloadTimer = 0.5f;
+    private float currentReloadTimer = 0f;
     // Start is called before the first frame update
     void Start()
     {
+        currentShootTimer = shootTimer;
         currentAmmo = ammoCapacity;
         _leafController = GetComponent<LeafController>();
     }
@@ -26,7 +33,7 @@ public class PlayerShootController : MonoBehaviour
     void Update()
     {
 
-       if (Input.GetMouseButton(0))
+       if (Input.GetMouseButton(0) && !isReloading)
        {
            currentShootTimer += Time.deltaTime;
            if (currentShootTimer >= shootTimer)
@@ -48,9 +55,27 @@ public class PlayerShootController : MonoBehaviour
                }
                else
                {
-                   Debug.Log("No Ammo");
+                   isReloading = true;
                }
            }
+       }
+       
+       if (isReloading)
+       {
+             reloadTimer = reloadTimerTotal/ammoCapacity;
+             
+                currentReloadTimer += Time.deltaTime;
+                if (currentReloadTimer >= reloadTimer)
+                {
+                    currentReloadTimer = 0f;
+                    currentAmmo++;
+                    _leafController.AmmoCountChanged(currentAmmo, ammoCapacity);
+                    if (currentAmmo >= ammoCapacity)
+                    {
+                        isReloading = false;
+                    }
+                }
+              
        }
             
     }
