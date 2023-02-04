@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
     public GameObject[] objects;
-    private int amnTileLength = 10;
-    private float spawnX = -5.2f;
     private int tileLength = 1;
-    // Start is called before the first frame update
-    void Start()
+
+    public void LevelGenerateX(float spawnX, float positionY, float positionZ, int sizeX, int fenceSizeX,
+        int fenceSizeY, int fenceSizeZ)
     {
-        for (int i = 0; i < amnTileLength; i++)
+        int amnTileLengthX = sizeX / fenceSizeX;
+        for (int i = 0; i < amnTileLengthX; i++)
         {
             GameObject go = Instantiate(objects[0], transform.position, Quaternion.identity);
             go.transform.SetParent(transform);
-            go.transform.localScale = new Vector3(3, 3, 3);
-            go.transform.localPosition = new Vector3(spawnX, 0, 5);
+            go.transform.localScale = new Vector3(fenceSizeX, fenceSizeY, fenceSizeZ);
+            go.transform.localPosition = new Vector3(spawnX, positionY, positionZ);
             spawnX += tileLength;
         }
     }
