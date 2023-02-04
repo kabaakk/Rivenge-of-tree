@@ -33,14 +33,6 @@ public class CharacterMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                Instantiate(seed);
-                Debug.Log("Seed");
-            }
-        }
+      
     }
 }
