@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterHealthSystem : MonoBehaviour
+public class CharacterHealthSystem : Singleton<CharacterHealthSystem>
 {
     public float health;
     public float maxHealth = 100;
@@ -16,7 +16,6 @@ public class CharacterHealthSystem : MonoBehaviour
     public void GetDamage(float amount)
     {
         health -= amount;
-        Debug.Log(health);
 
         if (health <= 0)
         {

@@ -7,14 +7,12 @@ using UnityEngine.AI;
 public class AiMovement : MonoBehaviour
 {
     public static AiMovement instance;
-    NavMeshAgent nav;
+    protected NavMeshAgent nav;
     public CharacterHealthSystem chs;
-    public Transform ai;
-    Transform target;
+    protected Transform target;
 
-    [SerializeField] private Transform childTransform;
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         nav = GetComponent<NavMeshAgent>();
         target = PlayerArenaEndShoot.instance.transform;
@@ -24,7 +22,7 @@ public class AiMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
@@ -41,7 +39,7 @@ public class AiMovement : MonoBehaviour
         }
     }
 
-    void FaceTarget()
+    protected void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
