@@ -9,7 +9,7 @@ public class PlayerShootController : MonoBehaviour
     [SerializeField] private float shootTimer =0.2f;
     private float currentShootTimer = 0.2f;
     [SerializeField] private int ammoCapacity = 10;
-    private int currentAmmo = 10;
+    private int currentAmmo = 0;
 
     [SerializeField] private Seed seedPrefab;
     
@@ -86,7 +86,7 @@ public class PlayerShootController : MonoBehaviour
                     if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
                     {
                        // instantiate wall prefa
-                        WallObject wallObject = Instantiate(wallPrefab, hit.point, Quaternion.identity);
+                        WallObject wallObject = Instantiate(wallPrefab,transform.position + Vector3.up*2f, Quaternion.identity);
                         wallObject.transform.DOJump(hit.point, 0.5f, 1, 0.5f).SetEase(Ease.OutSine).OnComplete(()=> wallObject.GrowAllTrees());
                     }
                 }

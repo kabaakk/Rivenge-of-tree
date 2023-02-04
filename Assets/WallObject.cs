@@ -7,9 +7,11 @@ public class WallObject : MonoBehaviour
 
     [SerializeField] private List<TreeSmallController> smallTrees;
     // Start is called before the first frame update
+    [SerializeField] private GameObject pineCone;
 
     public void GrowAllTrees()
     {
+        pineCone.SetActive(false);
         Vector3 playerPos = PlayerArenaEndShoot.instance.transform.position;
         transform.LookAt(new Vector3(playerPos.x, transform.position.y, playerPos.z));
         StartCoroutine(GrowAllCoroutine());
