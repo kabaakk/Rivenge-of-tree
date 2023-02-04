@@ -511,7 +511,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 71.89
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -536,8 +536,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.4578137, y: -0.0035278306, z: 0.0068505905, w: 0.8890147}
-  m_LocalPosition: {x: 0.6452376, y: 16.63691, z: -10.4634495}
+  m_LocalRotation: {x: 0.45782727, y: 0, z: 0, w: 0.8890412}
+  m_LocalPosition: {x: 0.6452376, y: 14.00691, z: -9.2134495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 1455151189}
   - component: {fileID: 1455151188}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TileManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -742,6 +742,10 @@ PrefabInstance:
       propertyPath: basicEnemies.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 647195539617051183, guid: 08a74fce70b63914d877e25e307da426, type: 3}
+      propertyPath: basicEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 2417194783448637667, guid: a3b04ab8c2121ea448dee8c9e56017c6, type: 3}
     - target: {fileID: 4228325132967048708, guid: 08a74fce70b63914d877e25e307da426, type: 3}
       propertyPath: m_Name
       value: ArenaController
@@ -846,10 +850,6 @@ PrefabInstance:
     - target: {fileID: 5091066075512189590, guid: c90c7828574e5f645a83e71bedc03a3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5091066075771935375, guid: c90c7828574e5f645a83e71bedc03a3d, type: 3}
-      propertyPath: m_Priority
-      value: 236
       objectReference: {fileID: 0}
     - target: {fileID: 5091066075917332664, guid: c90c7828574e5f645a83e71bedc03a3d, type: 3}
       propertyPath: m_Follow

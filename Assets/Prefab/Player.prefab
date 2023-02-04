@@ -107,7 +107,7 @@ MonoBehaviour:
   seed: {fileID: 7564639770823271213, guid: b534376fbfd47c342ae1c4b6c4878eab, type: 3}
   player: {fileID: 3215652190287148641}
   speed: 5
-  characterMovementArea: {x: 14.19, y: 8.29}
+  characterMovementArea: {x: 14, y: 9}
 --- !u!114 &1954462534845766605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newSeedPrefab: {fileID: 7593570127578141014, guid: 6c1dc66b576bf5142af530af65934517, type: 3}
+  staticTree: {fileID: 0}
 --- !u!1 &2931181498517403419
 GameObject:
   m_ObjectHideFlags: 0
