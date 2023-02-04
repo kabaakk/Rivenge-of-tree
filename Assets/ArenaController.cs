@@ -10,7 +10,9 @@ public class ArenaController : Singleton<ArenaController>
     private int currentSpawnCount = 0;
     private int enemyDiedCount = 0;
 
-    [SerializeField] private GameObject basicEnemy;
+    [SerializeField] private List<AiMovement> basicEnemies;
+    
+    int currentAreaLevel = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,7 @@ public class ArenaController : Singleton<ArenaController>
         {
             Vector3 randomOffset = Random.onUnitSphere * 20;
             randomOffset.y = 0;
-            Instantiate(basicEnemy, transform.position + randomOffset, Quaternion.identity);
+            Instantiate(basicEnemies[Random.Range()], transform.position + randomOffset, Quaternion.identity);
             yield return new WaitForSeconds(0.3f);
         }
         
