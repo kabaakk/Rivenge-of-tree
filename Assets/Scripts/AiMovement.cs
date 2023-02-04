@@ -48,7 +48,5 @@ public class AiMovement : MonoBehaviour
     {
         ArenaController.instance.EnemyDied();
         Destroy(this.gameObject);
-        
-        
     }
 }

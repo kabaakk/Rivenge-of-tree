@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterHealthSystem : MonoBehaviour
 {
+    public Image healthBar;
     public float health;
     public float maxHealth = 100;
 
@@ -11,12 +13,13 @@ public class CharacterHealthSystem : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        healthBar.fillAmount = health;
     }
 
     public void GetDamage(float amount)
     {
         health -= amount;
-        Debug.Log(health);
+        healthBar.fillAmount = health;
 
         if (health <= 0)
         {
