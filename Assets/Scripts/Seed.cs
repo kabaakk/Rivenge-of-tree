@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Seed : MonoBehaviour
 {
-    public static Seed instance;
     public int seedSpeed = 10;
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     public void SeedPrefab()
     {

@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 9055981264267578047}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: {fileID: 7564639770823271213, guid: b534376fbfd47c342ae1c4b6c4878eab, type: 3}
-  player: {fileID: 594129790}
+  player: {fileID: 3215652190287148641}
   speed: 5
 --- !u!114 &1954462534845766605
 MonoBehaviour:

@@ -9,11 +9,6 @@ public class CharacterMovement : MonoBehaviour
     CharacterController controller;
     public GameObject seed;
     public Transform player;
-    public static CharacterMovement instance;
-    private void Awake()
-    {
-        instance = this;
-    }
 
     public int speed = 100;
     // Start is called before the first frame update
@@ -31,7 +26,5 @@ public class CharacterMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
-
-      
     }
 }

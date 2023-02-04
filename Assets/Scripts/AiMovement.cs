@@ -7,19 +7,16 @@ public class AiMovement : MonoBehaviour
 {
     public static AiMovement instance;
     NavMeshAgent nav;
+    public CharacterHealthSystem chs;
+    public CharacterMovement movement;
     public Transform ai;
     Transform target;
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
-        target = CharacterMovement.instance.player;
+        target = movement.player;
     }
 
     // Update is called once per frame
@@ -31,11 +28,11 @@ public class AiMovement : MonoBehaviour
 
         if (distance <= 1)
         {
-            if (CharacterHealthSystem.instance.health > 0)
+            if (chs.health > 0)
             {
                 //attack animation;
                 FaceTarget();
-                CharacterHealthSystem.instance.GetDamage(0.2f);
+                chs.GetDamage(0.2f);
             }
         }
     }
