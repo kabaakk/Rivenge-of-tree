@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b3d24a3b93eb740b2da85c457a3292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootTimer: 0.2
+  shootTimer: 0.5
   ammoCapacity: 10
   seedPrefab: {fileID: 314358808725779096, guid: b534376fbfd47c342ae1c4b6c4878eab, type: 3}
   shootPoint: {fileID: 490048540}

@@ -15,7 +15,7 @@ public class AiRanged : AiMovement
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
 

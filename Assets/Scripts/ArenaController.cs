@@ -71,7 +71,7 @@ public class ArenaController : Singleton<ArenaController>
             currentAreaLevel = 0;
         }
         enemySpawnCount += 5;
-        ActionManager.instance.ArenaSurvivalStarted?.Invoke();
+        
     }
     
     

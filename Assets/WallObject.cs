@@ -30,7 +30,7 @@ public class WallObject : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
 
         transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InSine).OnComplete(() =>
 

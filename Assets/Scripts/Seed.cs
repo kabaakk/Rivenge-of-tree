@@ -44,5 +44,10 @@ public class Seed : MonoBehaviour
             other.GetComponent<AiMovement>().TakeDamage(damageAmount);
             Destroy(gameObject);
         }
+        
+        else if (other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
