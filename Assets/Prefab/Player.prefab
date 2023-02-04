@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newSeedPrefab: {fileID: 7593570127578141014, guid: 6c1dc66b576bf5142af530af65934517, type: 3}
-  staticTree: {fileID: 0}
+  staticTree: {fileID: 5451704977571157912, guid: 0d55a96e9fba03b47afefdee1ccc6a95, type: 3}
 --- !u!1 &2931181498517403419
 GameObject:
   m_ObjectHideFlags: 0

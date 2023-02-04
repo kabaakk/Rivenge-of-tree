@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class NewSeed : MonoBehaviour
 {
+
+    [SerializeField] private Transform childObj;
     private void OnCollisionEnter(Collision collision)
     {
         GetComponent<Rigidbody>().isKinematic = true;
@@ -19,5 +21,11 @@ public class NewSeed : MonoBehaviour
         CameraController.instance.SetArenaCamera(PlayerArenaEndShoot.instance.transform);
         transform.DOScale(Vector3.zero, 0.2f).OnComplete(() => Destroy(gameObject));
 
+    }
+
+    private void Update()
+    {
+        // rotate child obj
+        childObj.Rotate(Vector3.up * 100 * Time.deltaTime);
     }
 }

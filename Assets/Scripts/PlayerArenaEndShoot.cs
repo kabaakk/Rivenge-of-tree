@@ -87,6 +87,10 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
         GetComponent<LeafController>().CloseAllLeaf();
         TreePartController treePartController = GetComponentInChildren<TreePartController>();
         
+        // generate static tree at last pos
+        GameObject newStaticTree = Instantiate(staticTree, transform.position, Quaternion.identity);
+        
+        
         
         transform.position = new  Vector3(positionToGrow.x,0f,positionToGrow.z);
         

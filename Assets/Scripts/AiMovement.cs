@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,12 +12,15 @@ public class AiMovement : MonoBehaviour
     public Transform ai;
     Transform target;
 
+    [SerializeField] private Transform childTransform;
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
         target = PlayerArenaEndShoot.instance.transform;
         chs = target.GetComponent<CharacterHealthSystem>();
+        
+      
     }
 
     // Update is called once per frame
