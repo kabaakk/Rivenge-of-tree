@@ -18,7 +18,7 @@ public class TreePartController : MonoBehaviour
         foreach (var treePart in treeParts)
         {
             treePart.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

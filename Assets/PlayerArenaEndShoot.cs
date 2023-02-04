@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerArenaEndShoot : MonoBehaviour
+public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
 {
     private PlayerStateController _playerStateController;
 
@@ -68,8 +68,26 @@ public class PlayerArenaEndShoot : MonoBehaviour
 
     private void ThrowSeed(Vector3 direction)
     {
-        GameObject newSeed = Instantiate(newSeedPrefab, transform.position, Quaternion.identity);
-        newSeed.GetComponent<Rigidbody>().AddForce(direction * 1000f + Vector3.up*100f);
+        GameObject newSeed = Instantiate(newSeedPrefab, transform.position + Vector3.up*2, Quaternion.identity);
+        newSeed.GetComponent<Rigidbody>().AddForce(direction.normalized * 1000f + Vector3.up*100f);
+        
+    }
+
+
+    public void GrowNewTree(Vector3 positionToGrow)
+    {
+        GetComponent<LeafController>().CloseAllLeaf();
+        TreePartController treePartController = GetComponentInChildren<TreePartController>();
+        
+        
+        transform.position = new  Vector3(positionToGrow.x,0f,positionToGrow.z);
+        
+        treePartController.CloseTree();
+        treePartController.GrowTree();
+        
+        
+        
+        
         
     }
 }

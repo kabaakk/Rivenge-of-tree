@@ -8,7 +8,6 @@ public class AiMovement : MonoBehaviour
     public static AiMovement instance;
     NavMeshAgent nav;
     public CharacterHealthSystem chs;
-    public CharacterMovement movement;
     public Transform ai;
     Transform target;
 
@@ -16,7 +15,8 @@ public class AiMovement : MonoBehaviour
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
-        target = movement.player;
+        target = PlayerArenaEndShoot.instance.transform;
+        chs = target.GetComponent<CharacterHealthSystem>();
     }
 
     // Update is called once per frame
@@ -42,5 +42,13 @@ public class AiMovement : MonoBehaviour
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    public void TakeDamage()
+    {
+        ArenaController.instance.EnemyDied();
+        Destroy(this.gameObject);
+        
+        
     }
 }

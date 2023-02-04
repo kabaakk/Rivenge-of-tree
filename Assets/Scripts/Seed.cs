@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Seed : MonoBehaviour
 {
@@ -32,5 +33,22 @@ public class Seed : MonoBehaviour
         }
     }
 
-  
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            
+            collision.gameObject.GetComponent<AiMovement>().TakeDamage();
+            
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            
+            other.GetComponent<AiMovement>().TakeDamage();
+        }
+    }
 }
