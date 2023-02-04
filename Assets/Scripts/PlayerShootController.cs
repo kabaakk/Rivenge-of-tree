@@ -40,50 +40,50 @@ public class PlayerShootController : MonoBehaviour
             return;
         }
 
-       if (Input.GetMouseButton(0) && !isReloading)
-       {
-           currentShootTimer += Time.deltaTime;
-           if (currentShootTimer >= shootTimer)
-           {
-               currentShootTimer = 0f;
-               if (currentAmmo > 0)
-               {
-                   currentAmmo--;
-                   _leafController.AmmoCountChanged(currentAmmo, ammoCapacity);
-
-                   int layerMask = 1 << 6;
-                   Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                   if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
-                   {
-                       Seed firedSeed = Instantiate(seedPrefab, shootPoint.position, Quaternion.identity);
-                       firedSeed.transform.LookAt(new Vector3(hit.point.x, firedSeed.transform.position.y,
-                           hit.point.z));
-                   }
-               }
-               else
-               {
-                   isReloading = true;
-               }
-           }
-       }
-       
-       if (isReloading)
-       {
-             reloadTimer = reloadTimerTotal/ammoCapacity;
-             
-                currentReloadTimer += Time.deltaTime;
-                if (currentReloadTimer >= reloadTimer)
+        if (Input.GetMouseButton(0) && !isReloading)
+        {
+            currentShootTimer += Time.deltaTime;
+            if (currentShootTimer >= shootTimer)
+            {
+                currentShootTimer = 0f;
+                if (currentAmmo > 0)
                 {
-                    currentReloadTimer = 0f;
-                    currentAmmo++;
+                    currentAmmo--;
                     _leafController.AmmoCountChanged(currentAmmo, ammoCapacity);
-                    if (currentAmmo >= ammoCapacity)
+
+                    int layerMask = 1 << 6;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
                     {
-                        isReloading = false;
+                        Seed firedSeed = Instantiate(seedPrefab, shootPoint.position, Quaternion.identity);
+                        firedSeed.transform.LookAt(new Vector3(hit.point.x, firedSeed.transform.position.y,
+                            hit.point.z));
                     }
                 }
+                else
+                {
+                    isReloading = true;
+                }
+            }
+        }
+       
+        if (isReloading)
+        {
+            reloadTimer = reloadTimerTotal/ammoCapacity;
+             
+            currentReloadTimer += Time.deltaTime;
+            if (currentReloadTimer >= reloadTimer)
+            {
+                currentReloadTimer = 0f;
+                currentAmmo++;
+                _leafController.AmmoCountChanged(currentAmmo, ammoCapacity);
+                if (currentAmmo >= ammoCapacity)
+                {
+                    isReloading = false;
+                }
+            }
               
-       }
+        }
             
     }
         
