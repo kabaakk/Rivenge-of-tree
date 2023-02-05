@@ -55,6 +55,17 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
 
         if (Input.GetMouseButtonUp(0))
         {
+            int layerMask = 1 << 6;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
+            {
+                if (hit.point.z >= transform.position.z)
+                {
+                  return;
+                }
+            }
+
+           
             ActionManager.instance.SeedThrown?.Invoke();
             ThrowSeed(directionToShoot);
             

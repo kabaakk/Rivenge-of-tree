@@ -31,6 +31,8 @@ public class PlayerShootController : MonoBehaviour
     [SerializeField] private float wallTimer = 3f;
     private float currentWallTimer = 0f;
     [SerializeField] private WallObject wallPrefab;
+    
+    [SerializeField] private PowerUpTextController powerUpTextPrefab;
 
     public enum UpgradeTypes
     {
@@ -155,6 +157,9 @@ public class PlayerShootController : MonoBehaviour
     
     public void Upgrade(UpgradeTypes upgradeType)
     {
+        
+        PowerUpTextController powerUpTextController = Instantiate(powerUpTextPrefab, transform.position + Vector3.up * 2f, Quaternion.identity);
+        powerUpTextController.SetText(upgradeType);
         switch (upgradeType)
         {
             case UpgradeTypes.MaxAmmo:
