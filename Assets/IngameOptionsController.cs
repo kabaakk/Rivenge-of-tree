@@ -31,7 +31,7 @@ public class IngameOptionsController : MonoBehaviour
     }
 
 
-    private void ClosePanel()
+    public void ClosePanel()
     {
         
         ingameOptionsPanel.DOScale(Vector3.zero, 0.3f).SetUpdate(true).OnComplete(()=>ClosingFunctions());
