@@ -10,16 +10,21 @@ public class NewSeed : MonoBehaviour
     [SerializeField] private Transform childObj;
     private void OnCollisionEnter(Collision collision)
     {
-        GetComponent<Rigidbody>().isKinematic = true;
-        //zero all velocity
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        // check collision layer for ground
+        if (collision.gameObject.layer == 6)
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+            //zero all velocity
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         
         
-        PlayerArenaEndShoot.instance.GrowNewTree(transform.position);
+            PlayerArenaEndShoot.instance.GrowNewTree(transform.position);
         
-        CameraController.instance.SetArenaCamera(PlayerArenaEndShoot.instance.transform);
-        transform.DOScale(Vector3.zero, 0.2f).OnComplete(() => Destroy(gameObject));
+            CameraController.instance.SetArenaCamera(PlayerArenaEndShoot.instance.transform);
+            transform.DOScale(Vector3.zero, 0.2f).OnComplete(() => Destroy(gameObject));
+        }
+       
 
     }
 

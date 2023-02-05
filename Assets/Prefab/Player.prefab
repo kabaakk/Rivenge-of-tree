@@ -4956,6 +4956,7 @@ MonoBehaviour:
   startingDamage: 20
   wallTimer: 3
   wallPrefab: {fileID: 399412605, guid: a93ac1c7102f7ab468b90c8c17a54619, type: 3}
+  powerUpTextPrefab: {fileID: 6448357256221493779, guid: de2eb4ac46a2e574285d2ad185a52832, type: 3}
 --- !u!114 &492119146493028955
 MonoBehaviour:
   m_ObjectHideFlags: 0
