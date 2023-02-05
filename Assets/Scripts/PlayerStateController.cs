@@ -10,7 +10,7 @@ public class PlayerStateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerState = PlayerStates.ArenaSurvival;
+        playerState = PlayerStates.InBetween;
         ActionManager.instance.ArenaSurvived += ArenaSurvived;
         ActionManager.instance.ArenaSurvivalStarted += ArenaSurvivalStarted;
         ActionManager.instance.SeedThrown += SeedThrown;

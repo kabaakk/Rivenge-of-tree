@@ -40,9 +40,8 @@ public class AiMovement : MonoBehaviour
         nav.SetDestination(target.position);
         //FaceTarget();
 
-        if (distance <= 1)
+        if (distance <= 1.8)
         {
-            Debug.Log("xd");
             timerCounter += Time.deltaTime;
             if (timerCounter >= damageTimer)
             {
