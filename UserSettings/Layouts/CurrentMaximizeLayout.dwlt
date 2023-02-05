@@ -86,7 +86,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -225,8 +225,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
+      m_SelectedIDs: 7865f4ff
+      m_LastClickedID: -760456
       m_ExpandedIDs: 267bf5ff307bf5ff347bf5ff9efaf5fff8faf5ff18fbf5ff28fbf5ff32fbf5ff3afbf5ffa823f7ff7a39f7ff8a39f7ff6e02f8ff7e02f8ffa409f8ffb409f8ff4c81f8ffecbaf8ff8cdbf8ff2adcf8ffbcdcf8ff60f7f8ff1a14f9ff2a14f9ff0233f9ff1233f9fffe3bf9ff0e3cf9ffd43ff9ffce44f9ffde44f9ffa67df9ffb47df9ffb673fafff8d5faff3ee0faff56aafbffc6d9fbff4af2fbff92fbfbffec1cfcff70abfcff80bbfcff6272fdff60fafdff1600feff3c0dfeff164dfeff665afeff745afeff825afeff905afeff9e5afeffac5afeffba5afeffc85afeffd65afeffe45afefff25afeff005bfeff0e5bfeff1c5bfeff2a5bfeff425dfeff50d7feff0604ffff26b0ffff34b0ffff42b0ffff20cfffffb2d1ffffcad2ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 14.2723055, y: -0.24027443, z: 2.7728019}
     speed: 2
-    m_Value: {x: 0.032551296, y: 0.3636892, z: 0.8785375}
+    m_Value: {x: 14.2723055, y: -0.24027443, z: 2.7728019}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -553,11 +553,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.10790662, y: 0.6057778, z: -0.0834019, w: 0.78385663}
     speed: 2
-    m_Value: {x: -0.024198817, y: 0.97538006, z: -0.14025286, w: -0.16845553}
+    m_Value: {x: 0.10790661, y: 0.60577774, z: -0.0834019, w: 0.7838566}
   m_Size:
     m_Target: 10
     speed: 2
-    m_Value: 1.2247449
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -677,21 +677,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefab
+    - Assets/Audios
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefab
+  - Assets/Audios
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Reboot\Documents\Rivenge-of-tree
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: ae800000
-    m_LastClickedID: 32942
+    m_SelectedIDs: f2ba0100
+    m_LastClickedID: 113394
     m_ExpandedIDs: 00000000a880000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -745,8 +745,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 7865f4ff
+    m_LastClickedInstanceID: -760456
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000360e0100
     m_RenameOverlay:
@@ -772,7 +772,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 60}
+    m_ScrollPosition: {x: 0, y: 181.5}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207

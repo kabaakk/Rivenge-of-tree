@@ -54,12 +54,7 @@ public class AiMovement : MonoBehaviour
         }
     }
 
-    protected void FaceTarget()
-    {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-    }
+  
 
     public void TakeDamage(float damageAmount)
     {
@@ -70,6 +65,7 @@ public class AiMovement : MonoBehaviour
             isDead = true;
             ArenaController.instance.EnemyDied();
             GetComponent<Collider>().enabled = false;
+            GetComponent<NavMeshAgent>().enabled = false;
             StartCoroutine(DyingCoroutine());
         }
         

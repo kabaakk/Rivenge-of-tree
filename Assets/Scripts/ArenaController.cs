@@ -7,7 +7,6 @@ public class ArenaController : Singleton<ArenaController>
     
     
     private int enemySpawnCount = 5;
-    private int currentSpawnCount = 0;
     private int enemyDiedCount = 0;
 
     [SerializeField] private List<AiMovement> basicEnemies;
