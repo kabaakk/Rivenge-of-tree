@@ -3568,6 +3568,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3877218986259919810, guid: 8410b8c17399554499777c3e89f64cb0, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877218986259919810, guid: 8410b8c17399554499777c3e89f64cb0, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877218986259919810, guid: 8410b8c17399554499777c3e89f64cb0, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 3877218986259919837, guid: 8410b8c17399554499777c3e89f64cb0, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -5958,15 +5970,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5091066075917332665, guid: c90c7828574e5f645a83e71bedc03a3d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.3483166
+      value: 0.34831664
       objectReference: {fileID: 0}
     - target: {fileID: 5091066075917332665, guid: c90c7828574e5f645a83e71bedc03a3d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 4.5528224e-15
+      value: -0.00000003950748
       objectReference: {fileID: 0}
     - target: {fileID: 5091066075917332665, guid: c90c7828574e5f645a83e71bedc03a3d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -2.0313949e-15
+      value: 0.000000014680447
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5091066076316863460, guid: c90c7828574e5f645a83e71bedc03a3d, type: 3}
