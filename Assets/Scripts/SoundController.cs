@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SoundController : MonoBehaviour
 {
-    bool isMuted = false;
     [SerializeField] private static SoundController sound = null;
     [SerializeField] private Slider soundSlider;
 
