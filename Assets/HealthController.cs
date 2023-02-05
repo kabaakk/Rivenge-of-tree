@@ -19,11 +19,12 @@ public class HealthController : Singleton<HealthController>
         float lengthOfBar = healthBar.rectTransform.rect.width;
         // create a new square image
         Image newImage = new GameObject("DamageTaken").AddComponent<Image>();
-        newImage.transform.SetParent(healthBar.transform);
+        newImage.transform.SetParent(healthBar.transform.parent);
+        newImage.rectTransform.localScale = Vector3.one;
         // image length is proprtioned to dmgamount
         newImage.rectTransform.sizeDelta = new Vector2(lengthOfBar * (dmgAmount / maxHealth), healthBar.rectTransform.rect.height);
         //image position is end of fill point
-        newImage.rectTransform.anchoredPosition = new Vector2(healthBar.rectTransform.rect.width * ((currentHealth-dmgAmount) / maxHealth), 0);
+        newImage.rectTransform.anchoredPosition = new Vector2(healthBar.rectTransform.rect.width * ((currentHealth-dmgAmount*2) / maxHealth), 0);
         newImage.color = grad.Evaluate(currentHealth / maxHealth);
         newImage.transform.DOMoveY(newImage.transform.position.y - 100f,1f).SetEase(Ease.InQuint).OnComplete(() => Destroy(newImage.gameObject));
         newImage.DOFade(0f, 1f).SetEase(Ease.InQuint);
