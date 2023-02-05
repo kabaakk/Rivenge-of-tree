@@ -7,7 +7,6 @@ public class ArenaController : Singleton<ArenaController>
     
     
     private int enemySpawnCount = 5;
-    private int currentSpawnCount = 0;
     private int enemyDiedCount = 0;
 
     [SerializeField] private List<AiMovement> basicEnemies;
@@ -17,7 +16,8 @@ public class ArenaController : Singleton<ArenaController>
     void Start()
     {
         ActionManager.instance.ArenaSurvivalStarted += SurvivalStarted;
-        
+        ActionManager.instance.ArenaSurvived += ArenaSurvived;
+        ActionManager.instance.PlayerDied += PlayerDied;
        // SpawnEnemies();
     }
 
@@ -49,11 +49,7 @@ public class ArenaController : Singleton<ArenaController>
         
         
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
     public void EnemyDied()
     {
@@ -65,7 +61,28 @@ public class ArenaController : Singleton<ArenaController>
 
 
     }
-    
+
+    private void ArenaSurvived()
+    {
+        
+        currentAreaLevel++;
+       
+        enemySpawnCount += 5;
+        
+    }
+
+
+    private void PlayerDied()
+    {
+        //Despawn enemies
+       
+        List<AiMovement> enemies = new List<AiMovement>(FindObjectsOfType<AiMovement>());
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
+        
+    }
     
     
 }

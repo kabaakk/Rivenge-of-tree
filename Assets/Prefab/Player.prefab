@@ -88,7 +88,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 3
-  m_Radius: 0.5000001
+  m_Radius: 0.52
   m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: 0.08
@@ -136,10 +136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b3d24a3b93eb740b2da85c457a3292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootTimer: 0.2
+  shootTimer: 0.3
   ammoCapacity: 10
   seedPrefab: {fileID: 314358808725779096, guid: b534376fbfd47c342ae1c4b6c4878eab, type: 3}
   shootPoint: {fileID: 490048540}
+  wallTimer: 3
+  wallPrefab: {fileID: 399412605, guid: a93ac1c7102f7ab468b90c8c17a54619, type: 3}
 --- !u!114 &492119146493028955
 MonoBehaviour:
   m_ObjectHideFlags: 0

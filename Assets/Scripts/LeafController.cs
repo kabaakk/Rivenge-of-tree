@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class LeafController : MonoBehaviour
@@ -71,6 +72,7 @@ public class LeafController : MonoBehaviour
             if (leafs.IndexOf(leaf) == leafIndex)
             {
                 leaf.SetActive(true);
+                
             }
             else
             {

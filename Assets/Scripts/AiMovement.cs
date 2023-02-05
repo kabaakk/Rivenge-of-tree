@@ -14,7 +14,7 @@ public class AiMovement : MonoBehaviour
     protected bool isDead = false;
 
     [SerializeField] protected float health = 20f;
-
+    [SerializeField] private float damageAmount = 20f;
     [SerializeField] private float damageTimer = 0.3f;
 
     private float timerCounter = 0f;
@@ -45,7 +45,7 @@ public class AiMovement : MonoBehaviour
             timerCounter += Time.deltaTime;
             if (timerCounter >= damageTimer)
             {
-                chs.GetDamage(0.2f);
+                chs.GetDamage(damageAmount);
                 timerCounter = 0f;
             }
             
@@ -54,12 +54,7 @@ public class AiMovement : MonoBehaviour
         }
     }
 
-    protected void FaceTarget()
-    {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-    }
+  
 
     public void TakeDamage(float damageAmount)
     {
@@ -70,6 +65,7 @@ public class AiMovement : MonoBehaviour
             isDead = true;
             ArenaController.instance.EnemyDied();
             GetComponent<Collider>().enabled = false;
+            GetComponent<NavMeshAgent>().enabled = false;
             StartCoroutine(DyingCoroutine());
         }
         

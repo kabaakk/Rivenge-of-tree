@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5274287302762934505}
   - component: {fileID: 5274287302762934486}
   - component: {fileID: 4986424631868081340}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -136,8 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chs: {fileID: 0}
-  movement: {fileID: 0}
-  ai: {fileID: 5274287302762934504}
+  health: 20
+  damageAmount: 20
+  damageTimer: 0.3
 --- !u!54 &4986424631868081340
 Rigidbody:
   m_ObjectHideFlags: 0

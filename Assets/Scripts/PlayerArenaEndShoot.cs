@@ -62,6 +62,8 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
 
     private void ThrowSeed(Vector3 direction)
     {
+        AudioController.instance.PlaySound(AudioController.SoundTypes.acornFly);
+
         GameObject newSeed = Instantiate(newSeedPrefab, transform.position + Vector3.up*2, Quaternion.identity);
         newSeed.GetComponent<Rigidbody>().AddForce(direction.normalized * 1000f + Vector3.up*300f);
         
