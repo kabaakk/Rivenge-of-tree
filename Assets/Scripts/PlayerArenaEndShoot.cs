@@ -16,10 +16,11 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
     [SerializeField] private GameObject staticTree;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         _playerStateController = GetComponent<PlayerStateController>();
         TreePartController treePartController = GetComponentInChildren<TreePartController>();
+        yield return null;
         treePartController.CloseTree();
         treePartController.GrowTree();
     }

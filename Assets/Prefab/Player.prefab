@@ -4953,6 +4953,7 @@ MonoBehaviour:
   ammoCapacity: 10
   seedPrefab: {fileID: 314358808725779096, guid: b534376fbfd47c342ae1c4b6c4878eab, type: 3}
   shootPoint: {fileID: 490048540}
+  startingDamage: 20
   wallTimer: 3
   wallPrefab: {fileID: 399412605, guid: a93ac1c7102f7ab468b90c8c17a54619, type: 3}
 --- !u!114 &492119146493028955
@@ -4998,7 +4999,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newSeedPrefab: {fileID: 7593570127578141014, guid: 6c1dc66b576bf5142af530af65934517, type: 3}
   staticTree: {fileID: 5451704977571157912, guid: 0d55a96e9fba03b47afefdee1ccc6a95, type: 3}
-  landArea: {fileID: 0}
 --- !u!54 &6188175800820901782
 Rigidbody:
   m_ObjectHideFlags: 0
