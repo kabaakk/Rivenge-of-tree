@@ -31,4 +31,10 @@ public class HealthController : Singleton<HealthController>
 
         healthBar.color = grad.Evaluate(currentHealth / maxHealth);
     }
+    
+    public void RefilledHealth(float currentHealth, float maxHealth)
+    {
+        healthBar.fillAmount = currentHealth / maxHealth;
+        healthBar.color = grad.Evaluate(currentHealth / maxHealth);
+    }
 }

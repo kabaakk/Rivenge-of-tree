@@ -20,6 +20,7 @@ public class CharacterHealthSystem : Singleton<CharacterHealthSystem>
     private void RefillHealth()
     {
         health = Mathf.Clamp(health + 10f, 0, maxHealth);
+        HealthController.instance.RefilledHealth( health, maxHealth);
     }
     public void GetDamage(float amount)
     {

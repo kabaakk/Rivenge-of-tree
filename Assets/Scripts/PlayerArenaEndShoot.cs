@@ -15,7 +15,6 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
 
     [SerializeField] private GameObject staticTree;
 
-    [SerializeField] private Transform landArea;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,8 +46,6 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
                     directionToShoot = transform.position - hit.point;
 
                     LineRendererController.instance.DrawLine(transform.position, transform.position - directionToShoot);
-
-
                 }
             }
             
@@ -84,6 +81,10 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
 
     public void GrowNewTree(Vector3 positionToGrow)
     {
+        Vector3 clampedPos = new Vector3(Mathf.Clamp(positionToGrow.x, -26f, 26f), 
+            0f, 
+            positionToGrow.z);
+        
         GetComponent<LeafController>().CloseAllLeaf();
         TreePartController treePartController = GetComponentInChildren<TreePartController>();
         
