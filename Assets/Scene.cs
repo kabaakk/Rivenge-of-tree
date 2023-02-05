@@ -18,7 +18,7 @@ public class Scene : MonoBehaviour
 
     public void Options()
     {
-        scenes[0].SetActive(false);
+        scenes[0].SetActive(true);
         scenes[1].SetActive(false);
         scenes[2].SetActive(true);
     }
