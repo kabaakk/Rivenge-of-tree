@@ -17,8 +17,7 @@ public abstract class Singleton<T>: MonoBehaviour where T: Singleton<T> {
     }
 		
     protected virtual void Awake() {
-        if (sInstance != null) Debug.LogError(name + "error: already initialized", this);
-			
+       
         sInstance = (T)this;
     }
 }
