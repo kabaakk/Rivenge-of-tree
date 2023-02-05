@@ -5,6 +5,7 @@ using UnityEngine;
 public class RotateAround : MonoBehaviour
 {
 
+    [SerializeField] private Transform childObj;
    
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class RotateAround : MonoBehaviour
     void Update()
     {
         //Slowy rotate aroundy axis
-        transform.RotateAround(transform.position, Vector3.up, 50 * Time.deltaTime);
+        childObj.RotateAround(transform.position, Vector3.up, 50 * Time.deltaTime);
         // bounce up and down
         transform.position = new Vector3(transform.position.x, Mathf.PingPong(Time.time, 1) +0.5f, transform.position.z);
         

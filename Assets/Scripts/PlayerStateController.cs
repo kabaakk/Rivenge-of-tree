@@ -14,6 +14,7 @@ public class PlayerStateController : MonoBehaviour
         ActionManager.instance.ArenaSurvived += ArenaSurvived;
         ActionManager.instance.ArenaSurvivalStarted += ArenaSurvivalStarted;
         ActionManager.instance.SeedThrown += SeedThrown;
+        ActionManager.instance.GameWin += GameWin;
     }
 
 
@@ -48,6 +49,12 @@ public class PlayerStateController : MonoBehaviour
         ActionManager.instance.PlayerDied?.Invoke();
            
         playerState = PlayerStates.Dead;
+    }
+    
+    
+    private void GameWin()
+    {
+        playerState = PlayerStates.InBetween;
     }
     
 }

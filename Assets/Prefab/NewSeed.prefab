@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3791248255653872016}
   m_Layer: 9
   m_Name: NewSeed
-  m_TagString: Untagged
+  m_TagString: NewSeed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
