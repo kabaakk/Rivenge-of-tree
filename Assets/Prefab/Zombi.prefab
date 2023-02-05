@@ -83,6 +83,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1139008271484741934, guid: 608eb5c7fb073c84d863aae7392cb96b, type: 3}
   m_PrefabInstance: {fileID: 519667630884455177}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5064787323724994321
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2417194783448637661}
+    m_Modifications:
+    - target: {fileID: 2447857160970531648, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_Name
+      value: ZombiHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531653, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531654, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 20.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531654, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447857160970531654, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+--- !u!198 &7471810580925178967 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2447857160970531654, guid: f56541ab12ceb794ab0b00b409eee4f6, type: 3}
+  m_PrefabInstance: {fileID: 5064787323724994321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7546222641404416053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,6 +164,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5274287302762934486, guid: f80371126183f5243ae6250eb32a57e9, type: 3}
+      propertyPath: hitParticle
+      value: 
+      objectReference: {fileID: 7471810580925178967}
     - target: {fileID: 5274287302762934486, guid: f80371126183f5243ae6250eb32a57e9, type: 3}
       propertyPath: childTransform
       value: 

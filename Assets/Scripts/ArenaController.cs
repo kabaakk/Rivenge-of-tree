@@ -41,9 +41,10 @@ public class ArenaController : Singleton<ArenaController>
     {
         for(int i=0;i<enemySpawnCount;i++)
         {
-            Vector3 randomOffset = Random.onUnitSphere * 20;
+            var vector2 = Random.insideUnitCircle.normalized * 15f;
+            Vector3 randomOffset = new Vector3(vector2.x, 0, vector2.y);
             randomOffset.y = 0;
-            Instantiate(basicEnemies[Random.Range(0,currentAreaLevel)], transform.position + randomOffset, Quaternion.identity);
+            Instantiate(basicEnemies[Random.Range(0,Mathf.Clamp(currentAreaLevel,0,basicEnemies.Count))], transform.position + randomOffset, Quaternion.identity);
             yield return new WaitForSeconds(0.3f);
         }
         

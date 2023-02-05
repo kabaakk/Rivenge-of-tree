@@ -14,11 +14,13 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
     [SerializeField] private GameObject newSeedPrefab;
 
     [SerializeField] private GameObject staticTree;
+
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         _playerStateController = GetComponent<PlayerStateController>();
         TreePartController treePartController = GetComponentInChildren<TreePartController>();
+        yield return null;
         treePartController.CloseTree();
         treePartController.GrowTree();
     }
@@ -40,9 +42,12 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
             {
-               directionToShoot =  transform.position -hit.point;
-                
-                LineRendererController.instance.DrawLine(transform.position, transform.position - directionToShoot);
+                if (hit.point.z < transform.position.z)
+                {
+                    directionToShoot = transform.position - hit.point;
+
+                    LineRendererController.instance.DrawLine(transform.position, transform.position - directionToShoot);
+                }
             }
             
             
@@ -52,6 +57,7 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
         {
             ActionManager.instance.SeedThrown?.Invoke();
             ThrowSeed(directionToShoot);
+            
 
         }
         
@@ -65,7 +71,7 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
         AudioController.instance.PlaySound(AudioController.SoundTypes.acornFly);
 
         GameObject newSeed = Instantiate(newSeedPrefab, transform.position + Vector3.up*2, Quaternion.identity);
-        newSeed.GetComponent<Rigidbody>().AddForce(direction.normalized * 1000f + Vector3.up*300f);
+        newSeed.GetComponent<Rigidbody>().AddForce(direction.normalized * 20f + Vector3.up*5f,ForceMode.VelocityChange);
         
         CameraController.instance.SetFollowForSeedCamera(newSeed.transform);
         CameraController.instance.SetCameraStatus(CameraController.CameraTypes.FlyCamera);
@@ -76,6 +82,10 @@ public class PlayerArenaEndShoot : Singleton<PlayerArenaEndShoot>
 
     public void GrowNewTree(Vector3 positionToGrow)
     {
+        Vector3 clampedPos = new Vector3(Mathf.Clamp(positionToGrow.x, -26f, 26f), 
+            0f, 
+            positionToGrow.z);
+        
         GetComponent<LeafController>().CloseAllLeaf();
         TreePartController treePartController = GetComponentInChildren<TreePartController>();
         

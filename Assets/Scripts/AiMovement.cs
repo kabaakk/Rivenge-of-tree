@@ -18,6 +18,8 @@ public class AiMovement : MonoBehaviour
     [SerializeField] private float damageTimer = 0.3f;
 
     private float timerCounter = 0f;
+
+    [SerializeField] private ParticleSystem hitParticle;
     // Start is called before the first frame update
     protected void Start()
     {
@@ -40,7 +42,7 @@ public class AiMovement : MonoBehaviour
         nav.SetDestination(target.position);
         //FaceTarget();
 
-        if (distance <= 1)
+        if (distance <= 1.8)
         {
             timerCounter += Time.deltaTime;
             if (timerCounter >= damageTimer)
@@ -58,8 +60,13 @@ public class AiMovement : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        if (hitParticle)
+        {
+            hitParticle.Play();
+        }
         
         health -= damageAmount;
+        AudioController.instance.PlaySound(AudioController.SoundTypes.monsterHit);
         if (health <= 0)
         {
             isDead = true;

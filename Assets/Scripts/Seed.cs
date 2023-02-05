@@ -22,6 +22,10 @@ public class Seed : MonoBehaviour
         instance = this;
     }
 
+    public void SetDamageAmount(float damageAmount)
+    {
+        this.damageAmount = damageAmount;
+    }
 
     private void Update()
     {

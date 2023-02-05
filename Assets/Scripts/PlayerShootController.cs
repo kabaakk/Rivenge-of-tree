@@ -26,9 +26,19 @@ public class PlayerShootController : MonoBehaviour
     private PlayerStateController _playerStateController;
 
 
+    [SerializeField] private float startingDamage = 20f;
+
     [SerializeField] private float wallTimer = 3f;
     private float currentWallTimer = 0f;
     [SerializeField] private WallObject wallPrefab;
+
+    public enum UpgradeTypes
+    {
+        MaxAmmo,
+        ShootRate,
+        Damage
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +78,7 @@ public class PlayerShootController : MonoBehaviour
                         Seed firedSeed = Instantiate(seedPrefab, shootPoint.position, Quaternion.identity);
                         firedSeed.transform.LookAt(new Vector3(hit.point.x, firedSeed.transform.position.y,
                             hit.point.z));
+                        firedSeed.SetDamageAmount(startingDamage);
                     }
                 }
                 else
@@ -138,6 +149,24 @@ public class PlayerShootController : MonoBehaviour
         }
       
           
+    }
+    
+   
+    
+    public void Upgrade(UpgradeTypes upgradeType)
+    {
+        switch (upgradeType)
+        {
+            case UpgradeTypes.MaxAmmo:
+                ammoCapacity++;
+                break;
+            case UpgradeTypes.ShootRate:
+                shootTimer = Mathf.Clamp(shootTimer - 0.05f, 0.05f, 0.5f);
+                break;
+            case UpgradeTypes.Damage:
+                startingDamage+=2;
+                break;
+        }
     }
     
 }

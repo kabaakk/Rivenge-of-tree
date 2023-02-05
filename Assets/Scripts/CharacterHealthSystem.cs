@@ -20,13 +20,16 @@ public class CharacterHealthSystem : Singleton<CharacterHealthSystem>
     private void RefillHealth()
     {
         health = Mathf.Clamp(health + 10f, 0, maxHealth);
+        HealthController.instance.RefilledHealth( health, maxHealth);
     }
     public void GetDamage(float amount)
     {
         if (playerStateController.playerState == PlayerStates.ArenaSurvival)
         {
+            
             AudioController.instance.PlaySound(AudioController.SoundTypes.playerHit);
             health -= amount;
+            HealthController.instance.DamageTaken(amount, health, maxHealth);
 
             if (health <= 0)
             {

@@ -9,13 +9,13 @@ public class AiRanged : AiMovement
     [SerializeField] private float fireBallTimer = 5f;
     private float currentFireBallTimer = 0f;
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
         base.Start();
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected new void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
 

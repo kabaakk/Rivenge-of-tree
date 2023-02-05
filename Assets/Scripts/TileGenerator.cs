@@ -15,6 +15,7 @@ public class TileGenerator : MonoBehaviour
 
 
     private List<Transform> fences = new List<Transform>();
+    
     private void Start()
     {
         //StartCoroutine(GenerateArea(transform.position, 10, 10));

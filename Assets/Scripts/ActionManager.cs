@@ -14,6 +14,8 @@ public class ActionManager : Singleton<ActionManager>
     public Action SeedThrown;
 
     public Action PlayerDied;
+
+    public Action GameWin;
     // Start is called before the first frame update
     void Start()
     {
