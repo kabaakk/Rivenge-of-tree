@@ -238,7 +238,6 @@ GameObject:
   m_Component:
   - component: {fileID: 293771149}
   - component: {fileID: 293771150}
-  - component: {fileID: 293771151}
   m_Layer: 0
   m_Name: SoundSlider
   m_TagString: Untagged
@@ -320,7 +319,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 293771151}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
         m_MethodName: changeSoundVolume
         m_Mode: 1
@@ -332,19 +331,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &293771151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293771148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a3de3a0fbd6a4a4eb304ddab790d828, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundSlider: {fileID: 293771150}
 --- !u!1 &600742468
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +418,7 @@ GameObject:
   - component: {fileID: 631128758}
   - component: {fileID: 631128760}
   - component: {fileID: 631128759}
+  - component: {fileID: 631128761}
   m_Layer: 0
   m_Name: MusicSystem
   m_TagString: Untagged
@@ -498,6 +485,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &631128761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631128757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3df5fba4f7fb1c43ae42eaeac40a83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 1519969410}
 --- !u!1 &661080287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1228,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1519969409}
   - component: {fileID: 1519969410}
-  - component: {fileID: 1519969411}
   m_Layer: 0
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -1310,7 +1309,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1519969411}
+      - m_Target: {fileID: 631128761}
         m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
         m_MethodName: ChangeVolume
         m_Mode: 1
@@ -1322,19 +1321,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1519969411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1519969408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3df5fba4f7fb1c43ae42eaeac40a83b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSlider: {fileID: 1519969410}
 --- !u!1 &1645960514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,7 +1631,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 293771151}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
         m_MethodName: MuteSound
         m_Mode: 1
@@ -1778,7 +1764,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1519969411}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
         m_MethodName: MusicMute
         m_Mode: 1
@@ -1790,7 +1776,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1519969411}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
         m_MethodName: OpenMusic
         m_Mode: 1
@@ -2696,7 +2682,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 733, y: -240}
-  m_SizeDelta: {x: 297, y: 30}
+  m_SizeDelta: {x: 180, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6466480877699032279
 CanvasRenderer:

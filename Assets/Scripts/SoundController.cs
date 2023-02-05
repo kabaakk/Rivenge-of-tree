@@ -6,7 +6,21 @@ using UnityEngine.UI;
 public class SoundController : MonoBehaviour
 {
     bool isMuted = false;
+    [SerializeField] private static SoundController sound = null;
     [SerializeField] private Slider soundSlider;
+
+    private void Awake()
+    {
+        if (sound == null)
+        {
+            sound = this;
+            DontDestroyOnLoad(this);
+        } else if (sound != null)
+        {
+            Destroy(sound);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
