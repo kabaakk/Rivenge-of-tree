@@ -42,6 +42,7 @@ public class AiMovement : MonoBehaviour
 
         if (distance <= 1)
         {
+            Debug.Log("xd");
             timerCounter += Time.deltaTime;
             if (timerCounter >= damageTimer)
             {
@@ -60,6 +61,7 @@ public class AiMovement : MonoBehaviour
     {
         
         health -= damageAmount;
+        AudioController.instance.PlaySound(AudioController.SoundTypes.monsterHit);
         if (health <= 0)
         {
             isDead = true;

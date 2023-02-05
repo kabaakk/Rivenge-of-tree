@@ -25,8 +25,10 @@ public class CharacterHealthSystem : Singleton<CharacterHealthSystem>
     {
         if (playerStateController.playerState == PlayerStates.ArenaSurvival)
         {
+            
             AudioController.instance.PlaySound(AudioController.SoundTypes.playerHit);
             health -= amount;
+            HealthController.instance.DamageTaken(amount, health, maxHealth);
 
             if (health <= 0)
             {
