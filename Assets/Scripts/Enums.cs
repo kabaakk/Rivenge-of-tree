@@ -3,5 +3,6 @@ public enum PlayerStates
     ArenaSurvival,
     ArenaSurvivalEnd,
     MovingToNewArena,
-    InBetween
+    InBetween,
+    Dead
 }

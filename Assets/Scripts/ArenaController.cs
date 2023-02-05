@@ -18,6 +18,7 @@ public class ArenaController : Singleton<ArenaController>
     {
         ActionManager.instance.ArenaSurvivalStarted += SurvivalStarted;
         ActionManager.instance.ArenaSurvived += ArenaSurvived;
+        ActionManager.instance.PlayerDied += PlayerDied;
        // SpawnEnemies();
     }
 
@@ -66,14 +67,23 @@ public class ArenaController : Singleton<ArenaController>
     {
         
         currentAreaLevel++;
-        if (currentAreaLevel >= basicEnemies.Count)
-        {
-            currentAreaLevel = 0;
-        }
+       
         enemySpawnCount += 5;
         
     }
-    
+
+
+    private void PlayerDied()
+    {
+        //Despawn enemies
+       
+        List<AiMovement> enemies = new List<AiMovement>(FindObjectsOfType<AiMovement>());
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy.gameObject);
+        }
+        
+    }
     
     
 }

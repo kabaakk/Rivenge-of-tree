@@ -10,7 +10,7 @@ public class FireBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioController.instance.PlaySound(AudioController.SoundTypes.fireball);
     }
 
     // Update is called once per frame
@@ -30,7 +30,6 @@ public class FireBall : MonoBehaviour
         if (collision.gameObject.CompareTag("Character"))
         {
             
-            Debug.Log("xd");
             Destroy(gameObject);
         }
     }

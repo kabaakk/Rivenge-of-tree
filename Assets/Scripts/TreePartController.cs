@@ -11,6 +11,8 @@ public class TreePartController : MonoBehaviour
     
     public void GrowTree()
     {
+        AudioController.instance.PlaySound(AudioController.SoundTypes.grow);
+
         growParticle.Play();
         StartCoroutine(GrowTreeCoroutine());
     }

@@ -42,5 +42,12 @@ public class PlayerStateController : MonoBehaviour
         playerState = PlayerStates.ArenaSurvival;
         ActionManager.instance.ArenaSurvivalStarted?.Invoke();
     }
+
+    public void PlayerDied()
+    {
+        ActionManager.instance.PlayerDied?.Invoke();
+           
+        playerState = PlayerStates.Dead;
+    }
     
 }

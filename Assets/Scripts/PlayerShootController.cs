@@ -48,7 +48,6 @@ public class PlayerShootController : MonoBehaviour
             return;
         }
 
-        currentWallTimer += Time.deltaTime;
         if (Input.GetMouseButton(0) && !isReloading)
         {
             currentShootTimer += Time.deltaTime;
@@ -57,6 +56,8 @@ public class PlayerShootController : MonoBehaviour
                 currentShootTimer = 0f;
                 if (currentAmmo > 0)
                 {
+                    AudioController.instance.PlaySound(AudioController.SoundTypes.seedThrow);
+
                     currentAmmo--;
                     _leafController.AmmoCountChanged(currentAmmo, ammoCapacity);
 
@@ -76,23 +77,26 @@ public class PlayerShootController : MonoBehaviour
             }
             
             
-            if (Input.GetMouseButtonDown(1))
+          
+        }
+        currentWallTimer =Mathf.Clamp(currentWallTimer+ Time.deltaTime,0f,20f);
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if(currentWallTimer >= wallTimer)
             {
-                if(currentWallTimer >= wallTimer)
+                currentWallTimer = 0f;
+                int layerMask = 1 << 6;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
                 {
-                    currentWallTimer = 0f;
-                    int layerMask = 1 << 6;
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity, layerMask))
-                    {
-                       // instantiate wall prefa
-                        WallObject wallObject = Instantiate(wallPrefab,transform.position + Vector3.up*2f, Quaternion.identity);
-                        wallObject.transform.DOJump(hit.point, 0.5f, 1, 0.5f).SetEase(Ease.OutSine).OnComplete(()=> wallObject.GrowAllTrees());
-                    }
+                    // instantiate wall prefa
+                    WallObject wallObject = Instantiate(wallPrefab,transform.position + Vector3.up*2f, Quaternion.identity);
+                    wallObject.transform.DOJump(hit.point, 0.5f, 1, 0.5f).SetEase(Ease.OutSine).OnComplete(()=> wallObject.GrowAllTrees());
                 }
-                
-                
             }
+                
+                
         }
        
         if (isReloading)
@@ -134,8 +138,6 @@ public class PlayerShootController : MonoBehaviour
         }
       
           
-        
-
     }
     
 }

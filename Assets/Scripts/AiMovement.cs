@@ -14,7 +14,7 @@ public class AiMovement : MonoBehaviour
     protected bool isDead = false;
 
     [SerializeField] protected float health = 20f;
-
+    [SerializeField] private float damageAmount = 20f;
     [SerializeField] private float damageTimer = 0.3f;
 
     private float timerCounter = 0f;
@@ -45,7 +45,7 @@ public class AiMovement : MonoBehaviour
             timerCounter += Time.deltaTime;
             if (timerCounter >= damageTimer)
             {
-                chs.GetDamage(0.2f);
+                chs.GetDamage(damageAmount);
                 timerCounter = 0f;
             }
             
