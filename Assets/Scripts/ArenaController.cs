@@ -68,7 +68,7 @@ public class ArenaController : Singleton<ArenaController>
         
         currentAreaLevel++;
        
-        enemySpawnCount += 5;
+        enemySpawnCount += 2;
         
     }
 
